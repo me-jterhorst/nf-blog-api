@@ -1,0 +1,29 @@
+###POST
+
+POST http://127.0.0.1:4000/articles HTTP/1.1
+Content-Type: application/json
+
+{
+    "title" : "A title",
+    "body" : "A body"
+}
+
+### GET
+GET http://127.0.0.1:4000/articles HTTP/1.1
+
+
+### GET with ID 
+GET http://127.0.0.1:4000/articles/9 HTTP/1.1
+
+
+### PATCH 
+PATCH http://127.0.0.1:4000/articles/6 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Hello World my patched Title",
+    "body": "This is some awesome content you've been cooking"
+}
+
+### DELETE 
+DELETE  http://127.0.0.1:4000/articles/6 HTTP/1.1

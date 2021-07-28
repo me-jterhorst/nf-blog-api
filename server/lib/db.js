@@ -39,7 +39,7 @@ function insert(article) {
     const articles = JSON.parse(jsonData);
     const newArticle = {
       ...article,
-      id: `${article.length + 1}`,
+      id: `${articles.length + 1}`,
       createdAt: new Date().toISOString(),
       votes: {
         up: 0,
@@ -47,7 +47,7 @@ function insert(article) {
       },
     };
     articles.push(newArticle);
-    fs.writeFile(dbPath, JSON.stringify(posts));
+    fs.writeFile(dbPath, JSON.stringify(articles));
     return newArticle;
   });
 }
@@ -101,7 +101,7 @@ function updateById(id, content) {
     let newArticle;
     const newArticles = articles.map((article) => {
       if (article.id === id) {
-        newAricle = {
+        newArticle = {
           ...article,
           ...content,
         };
@@ -176,7 +176,7 @@ exports.updateById = updateById;
     console.log('deleted successfully');
   })
 
-  db.updateById("1", { body: "new content" }).then(updatedPost => {
+  db.updateById("1", { body: "new content" }).then(updatedPost =>{
     if (updatedPost) {
       // Post updated
     } else {
